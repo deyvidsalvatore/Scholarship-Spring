@@ -14,7 +14,8 @@ CREATE TABLE IF NOT EXISTS scrum_master (
 
 CREATE TABLE IF NOT EXISTS class (
                                      id BIGINT AUTO_INCREMENT PRIMARY KEY,
-                                     name VARCHAR(255),
+                                     name VARCHAR(50),
+                                     status ENUM('Waiting', 'Started', 'Finished') NOT NULL,
                                      coordinator_id INT,
                                      scrum_master_id INT,
                                      FOREIGN KEY (coordinator_id) REFERENCES coordinator(id),
