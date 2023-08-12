@@ -1,38 +1,34 @@
-INSERT INTO coordinator (first_name, last_name, email)
+INSERT IGNORE INTO coordinator (id, first_name, last_name, email)
 VALUES
-    ('Fabiane', 'Maciel', 'fabiane@email.com'),
-    ('Liliv', 'Hana', 'liliv@email.com'),
-    ('Alex', 'Silva', 'alex@email.com')
-ON DUPLICATE KEY UPDATE id = id;
+    (1, 'Fabiane', 'Maciel', 'fabiane@email.com'),
+    (2, 'Liliv', 'Hana', 'liliv@email.com'),
+    (3, 'Alex', 'Silva', 'alex@email.com');
 
-INSERT INTO scrum_master (first_name, last_name, email)
+INSERT IGNORE INTO scrum_master (id, first_name, last_name, email)
 VALUES
-    ('Maximiliano', 'Caijuri', 'max@email.com'),
-    ('Yago', 'Lopes', 'yago@email.com'),
-    ('Giovanni', 'Agenor', 'giovani@email.com')
-ON DUPLICATE KEY UPDATE id = id;
+    (1, 'Maximiliano', 'Caijuri', 'max@email.com'),
+    (2, 'Yago', 'Lopes', 'yago@email.com'),
+    (3, 'Giovanni', 'Agenor', 'giovani@email.com');
 
-INSERT INTO instructor (first_name, last_name, email)
+INSERT IGNORE INTO instructor (id, first_name, last_name, email)
 VALUES
-    ('Chad', 'Darby', 'luv2code@email.com'),
-    ('Edmar', 'Miller', 'edmar@email.com'),
-    ('Timotius', 'Pamungska', 'timotius@email.com')
-ON DUPLICATE KEY UPDATE id = id;
+    (1, 'Chad', 'Darby', 'luv2code@email.com'),
+    (2, 'Edmar', 'Miller', 'edmar@email.com'),
+    (3, 'Timotius', 'Pamungska', 'timotius@email.com');
 
-INSERT INTO student (first_name, last_name, email)
+INSERT IGNORE INTO student (id, first_name, last_name, email)
 VALUES
-    ('Deyvid', 'Silva', 'deyvid@email.com'),
-    ('Karol', 'Coraline', 'karol@email.com'),
-    ('Artur', 'Stone', 'artur@email.com'),
-    ('Thor', 'Altoff', 'thor@email.com'),
-    ('Pedro', 'Silva', 'pedro@email.com'),
-    ('Miguel', 'Lins', 'miguel@email.com'),
-    ('Fabio', 'Reis', 'fabio@email.com'),
-    ('George', 'Khristian', 'george@email.com'),
-    ('Camila', 'Silva', 'camila@email.com'),
-    ('Luiza', 'Onorio', 'luiza@email.com'),
-    ('Clara', 'Angra', 'clara@email.com'),
-    ('Andre', 'Heineken', 'andre@email.com'),
-    ('Morgan', 'Jones', 'morgan@email.com'),
-    ('Gregory', 'House', 'greg@email.com')
-ON DUPLICATE KEY UPDATE id = id;
+    (1, 'Deyvid', 'Silva', 'deyvid@email.com'),
+    (2, 'Karol', 'Coraline', 'karol@email.com'),
+    (3, 'Artur', 'Stone', 'artur@email.com'),
+    (4, 'Thor', 'Altoff', 'thor@email.com'),
+    (5, 'Pedro', 'Silva', 'pedro@email.com'),
+    (6, 'Miguel', 'Lins', 'miguel@email.com'),
+    (7, 'Fabio', 'Reis', 'fabio@email.com'),
+    (8, 'George', 'Khristian', 'george@email.com'),
+    (9, 'Camila', 'Silva', 'camila@email.com'),
+    (10, 'Luiza', 'Onorio', 'luiza@email.com'),
+    (11, 'Clara', 'Angra', 'clara@email.com'),
+    (12, 'Andre', 'Heineken', 'andre@email.com'),
+    (13, 'Morgan', 'Jones', 'morgan@email.com'),
+    (14, 'Gregory', 'House', 'greg@email.com');
