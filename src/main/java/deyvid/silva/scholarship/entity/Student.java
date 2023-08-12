@@ -6,10 +6,13 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity
 @Data
@@ -30,11 +33,15 @@ public class Student {
     @Column(nullable = false, length = 150)
     private String email;
 
-    @ManyToOne
-    @JoinColumn(name = "squad_id")
-    private Squad squad;
+    @ManyToMany
+    @JoinTable(
+            name = "student_squad",
+            joinColumns = @JoinColumn(name = "student_id"),
+            inverseJoinColumns = @JoinColumn(name = "squad_id")
+    )
+    private List<Squad> squads;
 
     public boolean isAlreadyInSameClassSquad(Squad newSquad) {
-        return squad != null && squad.getStudentClass().equals(newSquad.getStudentClass());
+        return squads != null && squads.stream().anyMatch(squad -> squad.getStudentClass().equals(newSquad.getStudentClass()));
     }
 }

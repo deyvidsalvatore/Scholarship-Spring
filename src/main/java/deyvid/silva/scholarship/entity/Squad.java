@@ -6,8 +6,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -31,7 +32,12 @@ public class Squad {
     @JoinColumn(name = "class_id")
     private Class studentClass;
 
-    @OneToMany(mappedBy = "squad")
+    @ManyToMany
+    @JoinTable(
+            name = "student_squad",
+            joinColumns = @JoinColumn(name = "squad_id"),
+            inverseJoinColumns = @JoinColumn(name = "student_id")
+    )
     private List<Student> students;
 
 }

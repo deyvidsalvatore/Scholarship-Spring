@@ -16,7 +16,7 @@ public class Class {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     private String name;
 
@@ -34,6 +34,12 @@ public class Class {
     @OneToMany(mappedBy = "studentClass")
     private List<Squad> squads;
 
-    @OneToMany(mappedBy = "instructorClass")
+    @ManyToMany
+    @JoinTable(
+            name = "class_instructor",
+            joinColumns = @JoinColumn(name = "class_id"),
+            inverseJoinColumns = @JoinColumn(name = "instructor_id")
+    )
     private List<Instructor> instructors;
+
 }
