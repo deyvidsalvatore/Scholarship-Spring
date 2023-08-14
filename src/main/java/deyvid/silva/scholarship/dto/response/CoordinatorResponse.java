@@ -12,6 +12,4 @@ public class CoordinatorResponse {
     private String firstName;
     private String lastName;
     private String email;
-    @JsonIgnore
-    private List<Class> coordinatorClasses;
 }
