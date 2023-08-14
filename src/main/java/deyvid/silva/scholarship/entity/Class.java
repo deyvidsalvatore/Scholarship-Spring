@@ -3,8 +3,10 @@ package deyvid.silva.scholarship.entity;
 import deyvid.silva.scholarship.enums.Status;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.jpa.repository.EntityGraph;
 
 import java.util.List;
 
@@ -12,6 +14,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Class {
 
     @Id
@@ -31,7 +34,12 @@ public class Class {
     @JoinColumn(name = "scrum_master_id")
     private ScrumMaster scrumMaster;
 
-    @OneToMany(mappedBy = "studentClass")
+    @ManyToMany
+    @JoinTable(
+            name = "class_squad",
+            joinColumns = @JoinColumn(name = "squad_id"),
+            inverseJoinColumns = @JoinColumn(name = "class_id")
+    )
     private List<Squad> squads;
 
     @ManyToMany
