@@ -12,6 +12,4 @@ public class ScrumMasterResponse {
     private String firstName;
     private String lastName;
     private String email;
-    @JsonIgnore
-    private List<Class> scrumMasterClasses;
 }
