@@ -8,6 +8,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class StudentSquadResponse {
-    private Long id;
+    private Integer id;
     private String squadName;
 }

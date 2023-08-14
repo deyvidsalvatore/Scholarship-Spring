@@ -43,7 +43,4 @@ public class Student {
     )
     private List<Squad> squads;
 
-    public boolean isAlreadyInSameClassSquad(Squad newSquad) {
-        return squads != null && squads.stream().anyMatch(squad -> squad.getStudentClass().equals(newSquad.getStudentClass()));
-    }
 }
