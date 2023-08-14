@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS instructor (
                                           email VARCHAR(150) NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS instructor_class (
+CREATE TABLE IF NOT EXISTS class_instructor (
                                                 instructor_id INT,
                                                 class_id BIGINT,
                                                 FOREIGN KEY (instructor_id) REFERENCES instructor(id),
