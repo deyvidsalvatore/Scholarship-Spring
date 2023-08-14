@@ -30,10 +30,17 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(getErrorsMap(errors), new HttpHeaders(), HttpStatus.BAD_REQUEST);
     }
 
-    @ExceptionHandler(IllegalArgumentException.class)
-    public ResponseEntity<ErrorResponse> handleIllegalArgumentException(IllegalArgumentException ex, HttpServletRequest request) {
+    @ExceptionHandler(ArgumentException.class)
+    public ResponseEntity<ErrorResponse> handleIllegalArgumentException(ArgumentException ex, HttpServletRequest request) {
         ErrorResponse errorResponse = ErrorResponse.createErrorResponse(HttpStatus.BAD_REQUEST, ex.getMessage(), request).getBody();
         return ResponseEntity.badRequest().body(errorResponse);
+    }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<Map<String, String>> handleIllegalArgumentsException(ArgumentException ex) {
+        Map<String, String> errorResponse = new HashMap<>();
+        errorResponse.put("error", ex.getMessage());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
     }
 
     private Map<String, List<String>> getErrorsMap(List<String> errors) {
