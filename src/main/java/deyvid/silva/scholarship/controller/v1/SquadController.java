@@ -1,4 +1,4 @@
-package deyvid.silva.scholarship.controller;
+package deyvid.silva.scholarship.controller.v1;
 
 import deyvid.silva.scholarship.dto.request.SquadRequest;
 import deyvid.silva.scholarship.dto.response.SquadResponse;
