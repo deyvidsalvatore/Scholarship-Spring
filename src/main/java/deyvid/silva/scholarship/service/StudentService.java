@@ -1,7 +1,6 @@
 package deyvid.silva.scholarship.service;
 
 import deyvid.silva.scholarship.dto.request.StudentRequest;
-import deyvid.silva.scholarship.dto.response.SquadResponse;
 import deyvid.silva.scholarship.dto.response.StudentResponse;
 import deyvid.silva.scholarship.dto.response.StudentSquadResponse;
 import deyvid.silva.scholarship.entity.Squad;
@@ -14,7 +13,6 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
