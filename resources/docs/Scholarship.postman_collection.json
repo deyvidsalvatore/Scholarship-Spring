@@ -1,0 +1,837 @@
+{
+	"info": {
+		"_postman_id": "26be5ef7-5ad7-4476-a53f-914dd715e660",
+		"name": "Scholarship",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18245658"
+	},
+	"item": [
+		{
+			"name": "Students",
+			"item": [
+				{
+					"name": "Get All Students",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrlV1}}/students",
+							"host": [
+								"{{baseUrlV1}}"
+							],
+							"path": [
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Student by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrlV1}}/students/19",
+							"host": [
+								"{{baseUrlV1}}"
+							],
+							"path": [
+								"students",
+								"19"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save Student",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\":\"Derek\",\n    \"lastName\":\"Follen\",\n    \"email\":\"derek@email.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrlV1}}/students",
+							"host": [
+								"{{baseUrlV1}}"
+							],
+							"path": [
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Student by ID",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"Jesus\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrlV1}}/students/16",
+							"host": [
+								"{{baseUrlV1}}"
+							],
+							"path": [
+								"students",
+								"16"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Student by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrlV1}}/students/17",
+							"host": [
+								"{{baseUrlV1}}"
+							],
+							"path": [
+								"students",
+								"17"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Squads by Student Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrlV1}}/students/3/squads",
+							"host": [
+								"{{baseUrlV1}}"
+							],
+							"path": [
+								"students",
+								"3",
+								"squads"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Scrum Master",
+			"item": [
+				{
+					"name": "Get All Scrum Masters",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrlV1}}/scrum-master",
+							"host": [
+								"{{baseUrlV1}}"
+							],
+							"path": [
+								"scrum-master"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Scrum Master By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrlV1}}/scrum-master/1",
+							"host": [
+								"{{baseUrlV1}}"
+							],
+							"path": [
+								"scrum-master",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save Scrum Master",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\":\"Kamado\",\n    \"lastName\":\"Tanjiro\",\n    \"email\":\"demonslayer@email.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrlV1}}/scrum-master",
+							"host": [
+								"{{baseUrlV1}}"
+							],
+							"path": [
+								"scrum-master"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Scrum Master by Id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\":\"Carioca\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrlV1}}/scrum-master/5",
+							"host": [
+								"{{baseUrlV1}}"
+							],
+							"path": [
+								"scrum-master",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Scrum Master by Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrlV1}}/scrum-master/4",
+							"host": [
+								"{{baseUrlV1}}"
+							],
+							"path": [
+								"scrum-master",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Coordinator",
+			"item": [
+				{
+					"name": "Get All Coordinators",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrlV1}}/coordinator",
+							"host": [
+								"{{baseUrlV1}}"
+							],
+							"path": [
+								"coordinator"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Coordinator By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrlV1}}/coordinator/1",
+							"host": [
+								"{{baseUrlV1}}"
+							],
+							"path": [
+								"coordinator",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save Coordinator",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\":\"Kamado\",\n    \"lastName\":\"Tanjiro\",\n    \"email\":\"demonslayer@email.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrlV1}}/coordinator",
+							"host": [
+								"{{baseUrlV1}}"
+							],
+							"path": [
+								"coordinator"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Coordinator by Id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\":\"Miqueas\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrlV1}}/coordinator/4",
+							"host": [
+								"{{baseUrlV1}}"
+							],
+							"path": [
+								"coordinator",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Coordinator by Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrlV1}}/coordinator/4",
+							"host": [
+								"{{baseUrlV1}}"
+							],
+							"path": [
+								"coordinator",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Instructor",
+			"item": [
+				{
+					"name": "Get Instructor by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrlV1}}/instructors/1",
+							"host": [
+								"{{baseUrlV1}}"
+							],
+							"path": [
+								"instructors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save Instructor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\":\"Kamado\",\n    \"lastName\":\"Tanjiro\",\n    \"email\":\"demonslayer@email.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrlV1}}/instructors",
+							"host": [
+								"{{baseUrlV1}}"
+							],
+							"path": [
+								"instructors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Instructor by Id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\":\"\",\n    \"lastName\":\"\",\n    \"email\":\"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrlV1}}/instructors/4",
+							"host": [
+								"{{baseUrlV1}}"
+							],
+							"path": [
+								"instructors",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Instructor by Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrlV1}}/instructor/4",
+							"host": [
+								"{{baseUrlV1}}"
+							],
+							"path": [
+								"instructor",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Instructors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrlV1}}/instructors",
+							"host": [
+								"{{baseUrlV1}}"
+							],
+							"path": [
+								"instructors"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Squads",
+			"item": [
+				{
+					"name": "Save a Squad",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"squadName\":\"Fofoca Brokers\",\n    \"students\":[11,12,13,14,15]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrlV1}}/squads",
+							"host": [
+								"{{baseUrlV1}}"
+							],
+							"path": [
+								"squads"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Squad by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrlV1}}/squads/3",
+							"host": [
+								"{{baseUrlV1}}"
+							],
+							"path": [
+								"squads",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Squads",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrlV1}}/squads",
+							"host": [
+								"{{baseUrlV1}}"
+							],
+							"path": [
+								"squads"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Squad",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"squadName\": \"Kaizen Tres\",\n    \"students\":[1,2,99]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrlV1}}/squads/2",
+							"host": [
+								"{{baseUrlV1}}"
+							],
+							"path": [
+								"squads",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Squad by Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrlV1}}/squads/3",
+							"host": [
+								"{{baseUrlV1}}"
+							],
+							"path": [
+								"squads",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Class",
+			"item": [
+				{
+					"name": "Create Class",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Spring Boot III\",\n    \"coordinator\":1,\n    \"scrumMaster\":1,\n    \"instructors\":[1,2,3],\n    \"squads\":[1,2,3]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrlV1}}/class",
+							"host": [
+								"{{baseUrlV1}}"
+							],
+							"path": [
+								"class"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Classes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrlV1}}/class",
+							"host": [
+								"{{baseUrlV1}}"
+							],
+							"path": [
+								"class"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Start Class",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrlV1}}/class/1/start",
+							"host": [
+								"{{baseUrlV1}}"
+							],
+							"path": [
+								"class",
+								"1",
+								"start"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Class by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrlV1}}/class/1",
+							"host": [
+								"{{baseUrlV1}}"
+							],
+							"path": [
+								"class",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Finish Class",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrlV1}}/class/1/finish",
+							"host": [
+								"{{baseUrlV1}}"
+							],
+							"path": [
+								"class",
+								"1",
+								"finish"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Class by ID (Waiting or Finished)",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrlV1}}/class/1",
+							"host": [
+								"{{baseUrlV1}}"
+							],
+							"path": [
+								"class",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Class",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrlV1}}/class/1",
+							"host": [
+								"{{baseUrlV1}}"
+							],
+							"path": [
+								"class",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "V2 Get Class by Scrum Master Param ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrlV2}}/class/scrum-master?scrumMasterId=1",
+							"host": [
+								"{{baseUrlV2}}"
+							],
+							"path": [
+								"class",
+								"scrum-master"
+							],
+							"query": [
+								{
+									"key": "scrumMasterId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "V2 Get Class by Instructor Param ID Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrlV2}}/class/instructor?instructorId=1",
+							"host": [
+								"{{baseUrlV2}}"
+							],
+							"path": [
+								"class",
+								"instructor"
+							],
+							"query": [
+								{
+									"key": "instructorId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "V2 Get Class by Coordinator Param ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrlV2}}/class/coordinator?coordinatorId=1",
+							"host": [
+								"{{baseUrlV2}}"
+							],
+							"path": [
+								"class",
+								"coordinator"
+							],
+							"query": [
+								{
+									"key": "coordinatorId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrlV1",
+			"value": "http://localhost:8080/scholarship/v1",
+			"type": "string"
+		},
+		{
+			"key": "baseUrlV2",
+			"value": "http://localhost:8080/scholarship/v2",
+			"type": "string"
+		}
+	]
+}
