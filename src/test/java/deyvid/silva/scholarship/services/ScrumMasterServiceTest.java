@@ -37,7 +37,6 @@ class ScrumMasterServiceTest {
 
     @Test
     void testGetAllScrumMasters() {
-        // Arrange
         List<ScrumMaster> scrumMasters = new ArrayList<>();
         scrumMasters.add(new ScrumMaster(1, "John", "Dorie", "john@email.com", null));
         scrumMasters.add(new ScrumMaster(2, "June", "Dorie", "june@email.com", null));
@@ -52,10 +51,8 @@ class ScrumMasterServiceTest {
                     return response;
                 });
 
-        // Act
         List<ScrumMasterResponse> scrumMasterResponses = scrumMasterService.getAllScrumMasters();
 
-        // Assert
         assertEquals(2, scrumMasterResponses.size());
         assertEquals("John", scrumMasterResponses.get(0).getFirstName());
         assertEquals("June", scrumMasterResponses.get(1).getFirstName());
@@ -65,7 +62,6 @@ class ScrumMasterServiceTest {
 
     @Test
     void testGetScrumMasterById_ValidId_ReturnsScrumMasterResponse() {
-        // Arrange
         Integer scrumMasterId = 1;
         ScrumMaster scrumMaster = new ScrumMaster(scrumMasterId, "John", "Dorie", "john@email.com", null);
         when(scrumMasterRepository.findById(scrumMasterId)).thenReturn(Optional.of(scrumMaster));
@@ -75,10 +71,8 @@ class ScrumMasterServiceTest {
 
         when(modelMapper.map(scrumMaster, ScrumMasterResponse.class)).thenReturn(mockScrumMasterResponse);
 
-        // Act
         ScrumMasterResponse scrumMasterResponse = scrumMasterService.getScrumMasterById(scrumMasterId);
 
-        // Assert
         assertEquals("John", scrumMasterResponse.getFirstName());
 
         verify(modelMapper, times(1)).map(scrumMaster, ScrumMasterResponse.class);
@@ -86,7 +80,6 @@ class ScrumMasterServiceTest {
 
     @Test
     void testSaveScrumMaster_ValidScrumMasterRequest_ReturnsScrumMasterResponse() {
-        // Arrange
         ScrumMasterRequest scrumMasterRequest = new ScrumMasterRequest();
         scrumMasterRequest.setFirstName("John");
         scrumMasterRequest.setLastName("Dorie");
@@ -102,14 +95,11 @@ class ScrumMasterServiceTest {
 
         ScrumMasterResponse mockScrumMasterResponse = new ScrumMasterResponse();
         mockScrumMasterResponse.setFirstName("John");
-        // Set other properties of mockScrumMasterResponse
 
         when(modelMapper.map(savedScrumMaster, ScrumMasterResponse.class)).thenReturn(mockScrumMasterResponse);
 
-        // Act
         ScrumMasterResponse scrumMasterResponse = scrumMasterService.saveScrumMaster(scrumMasterRequest);
 
-        // Assert
         assertEquals("John", scrumMasterResponse.getFirstName());
 
         verify(scrumMasterRepository, times(1)).save(any(ScrumMaster.class));
@@ -118,7 +108,6 @@ class ScrumMasterServiceTest {
 
     @Test
     void testUpdateScrumMaster_ValidScrumMasterRequest_ReturnsUpdatedScrumMasterResponse() {
-        // Arrange
         Integer scrumMasterId = 1;
         ScrumMasterRequest scrumMasterRequest = new ScrumMasterRequest();
         scrumMasterRequest.setFirstName("June");
@@ -142,14 +131,11 @@ class ScrumMasterServiceTest {
 
         ScrumMasterResponse mockUpdatedScrumMasterResponse = new ScrumMasterResponse();
         mockUpdatedScrumMasterResponse.setFirstName("June");
-        // Set other properties of mockUpdatedScrumMasterResponse
 
         when(modelMapper.map(updatedScrumMaster, ScrumMasterResponse.class)).thenReturn(mockUpdatedScrumMasterResponse);
 
-        // Act
         ScrumMasterResponse updatedScrumMasterResponse = scrumMasterService.updateScrumMaster(scrumMasterId, scrumMasterRequest);
 
-        // Assert
         assertEquals("June", updatedScrumMasterResponse.getFirstName());
 
         verify(scrumMasterRepository, times(1)).findById(scrumMasterId);
@@ -159,7 +145,6 @@ class ScrumMasterServiceTest {
 
     @Test
     void testDeleteScrumMaster_ValidId_ReturnsSuccessMessage() {
-        // Arrange
         Integer scrumMasterId = 1;
 
         ScrumMaster scrumMasterToDelete = new ScrumMaster();
@@ -170,10 +155,8 @@ class ScrumMasterServiceTest {
 
         when(scrumMasterRepository.findById(scrumMasterId)).thenReturn(Optional.of(scrumMasterToDelete));
 
-        // Act
         String resultMessage = scrumMasterService.deleteScrumMaster(scrumMasterId);
 
-        // Assert
         assertEquals("Scrum Master with ID 1 was deleted", resultMessage);
 
         verify(scrumMasterRepository, times(1)).findById(scrumMasterId);

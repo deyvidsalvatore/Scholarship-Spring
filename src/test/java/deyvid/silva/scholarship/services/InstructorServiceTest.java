@@ -37,7 +37,6 @@ class InstructorServiceTest {
 
     @Test
     void testGetAllInstructors() {
-        // Arrange
         List<Instructor> instructors = new ArrayList<>();
         instructors.add(new Instructor(1, "John", "Dorie", "john@email.com", null));
         instructors.add(new Instructor(2, "June", "Dorie", "June@email.com", null));
@@ -52,10 +51,8 @@ class InstructorServiceTest {
                     return response;
                 });
 
-        // Act
         List<InstructorResponse> instructorResponses = instructorService.getAllInstructors();
 
-        // Assert
         assertEquals(2, instructorResponses.size());
         assertEquals("John", instructorResponses.get(0).getFirstName());
         assertEquals("June", instructorResponses.get(1).getFirstName());
@@ -65,7 +62,6 @@ class InstructorServiceTest {
 
     @Test
     void testGetInstructorById_ValidId_ReturnsInstructorResponse() {
-        // Arrange
         Integer instructorId = 1;
         Instructor instructor = new Instructor(instructorId, "John", "Dorie", "john@email.com", null);
         when(instructorRepository.findById(instructorId)).thenReturn(Optional.of(instructor));
@@ -75,10 +71,8 @@ class InstructorServiceTest {
 
         when(modelMapper.map(instructor, InstructorResponse.class)).thenReturn(mockInstructorResponse);
 
-        // Act
         InstructorResponse instructorResponse = instructorService.getInstructorById(instructorId);
 
-        // Assert
         assertEquals("John", instructorResponse.getFirstName());
 
         verify(modelMapper, times(1)).map(instructor, InstructorResponse.class);
@@ -86,7 +80,6 @@ class InstructorServiceTest {
 
     @Test
     void testSaveInstructor_ValidInstructorRequest_ReturnsInstructorResponse() {
-        // Arrange
         InstructorRequest instructorRequest = new InstructorRequest();
         instructorRequest.setFirstName("John");
         instructorRequest.setLastName("Dorie");
@@ -102,14 +95,11 @@ class InstructorServiceTest {
 
         InstructorResponse mockInstructorResponse = new InstructorResponse();
         mockInstructorResponse.setFirstName("John");
-        // Set other properties of mockInstructorResponse
 
         when(modelMapper.map(savedInstructor, InstructorResponse.class)).thenReturn(mockInstructorResponse);
 
-        // Act
         InstructorResponse instructorResponse = instructorService.saveInstructor(instructorRequest);
 
-        // Assert
         assertEquals("John", instructorResponse.getFirstName());
 
         verify(instructorRepository, times(1)).save(any(Instructor.class));
@@ -118,7 +108,6 @@ class InstructorServiceTest {
 
     @Test
     void testUpdateInstructor_ValidInstructorRequest_ReturnsUpdatedInstructorResponse() {
-        // Arrange
         Integer instructorId = 1;
         InstructorRequest instructorRequest = new InstructorRequest();
         instructorRequest.setFirstName("June");
@@ -142,14 +131,11 @@ class InstructorServiceTest {
 
         InstructorResponse mockUpdatedInstructorResponse = new InstructorResponse();
         mockUpdatedInstructorResponse.setFirstName("June");
-        // Set other properties of mockUpdatedInstructorResponse
 
         when(modelMapper.map(updatedInstructor, InstructorResponse.class)).thenReturn(mockUpdatedInstructorResponse);
 
-        // Act
         InstructorResponse updatedInstructorResponse = instructorService.updateInstructor(instructorId, instructorRequest);
 
-        // Assert
         assertEquals("June", updatedInstructorResponse.getFirstName());
 
         verify(instructorRepository, times(1)).findById(instructorId);
@@ -159,7 +145,6 @@ class InstructorServiceTest {
 
     @Test
     void testDeleteInstructor_ValidId_ReturnsSuccessMessage() {
-        // Arrange
         Integer instructorId = 1;
 
         Instructor instructorToDelete = new Instructor();
@@ -170,10 +155,8 @@ class InstructorServiceTest {
 
         when(instructorRepository.findById(instructorId)).thenReturn(Optional.of(instructorToDelete));
 
-        // Act
         String resultMessage = instructorService.deleteInstructor(instructorId);
 
-        // Assert
         assertEquals("Instructor with ID 1 was deleted", resultMessage);
 
         verify(instructorRepository, times(1)).findById(instructorId);

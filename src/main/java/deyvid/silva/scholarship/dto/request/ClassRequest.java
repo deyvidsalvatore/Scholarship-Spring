@@ -1,7 +1,6 @@
 package deyvid.silva.scholarship.dto.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import deyvid.silva.scholarship.enums.Status;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;

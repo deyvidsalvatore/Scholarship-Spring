@@ -53,29 +53,23 @@ class ClassServiceTest {
 
     @Test
     void testGetClassById_ValidId_ReturnsClassResponse() {
-        // Arrange
         Class classEntity = createMockClass(1);
         when(classRepository.findById(1)).thenReturn(Optional.of(classEntity));
         when(modelMapper.map(classEntity, ClassResponse.class)).thenReturn(new ClassResponse());
-
-        // Act
+        
         ClassResponse classResponse = classService.getClassById(1);
-
-        // Assert
+        
         assertNotNull(classResponse);
         verify(modelMapper, times(1)).map(classEntity, ClassResponse.class);
     }
 
     @Test
     void testGetClassById_InvalidId_ThrowsResourceNotFoundException() {
-        // Arrange
         when(classRepository.findById(999)).thenReturn(Optional.empty());
-
-        // Act and Assert
+        
         assertThrows(ResourceNotFoundException.class, () -> classService.getClassById(999));
     }
-
-    // Add more test cases for other methods...
+    
 
     private Class createMockClass(int id) {
         Class classEntity = new Class();

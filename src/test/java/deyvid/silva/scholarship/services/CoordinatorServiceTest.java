@@ -37,7 +37,6 @@ class CoordinatorServiceTest {
 
     @Test
     void testGetAllCoordinators() {
-        // Arrange
         List<Coordinator> coordinators = new ArrayList<>();
         coordinators.add(new Coordinator(1, "John", "Dorie", "john@email.com", null));
         coordinators.add(new Coordinator(2, "June", "Dorie", "June@email.com", null));
@@ -52,10 +51,8 @@ class CoordinatorServiceTest {
                     return response;
                 });
 
-        // Act
         List<CoordinatorResponse> coordinatorResponses = coordinatorService.getAllCoordinators();
 
-        // Assert
         assertEquals(2, coordinatorResponses.size());
         assertEquals("John", coordinatorResponses.get(0).getFirstName());
         assertEquals("June", coordinatorResponses.get(1).getFirstName());
@@ -65,7 +62,6 @@ class CoordinatorServiceTest {
 
     @Test
     void testGetCoordinatorById_ValidId_ReturnsCoordinatorResponse() {
-        // Arrange
         Integer coordinatorId = 1;
         Coordinator coordinator = new Coordinator(coordinatorId, "John", "Dorie", "john@email.com", null);
         when(coordinatorRepository.findById(coordinatorId)).thenReturn(Optional.of(coordinator));
@@ -75,10 +71,8 @@ class CoordinatorServiceTest {
 
         when(modelMapper.map(coordinator, CoordinatorResponse.class)).thenReturn(mockCoordinatorResponse);
 
-        // Act
         CoordinatorResponse coordinatorResponse = coordinatorService.getCoordinatorById(coordinatorId);
 
-        // Assert
         assertEquals("John", coordinatorResponse.getFirstName());
 
         verify(modelMapper, times(1)).map(coordinator, CoordinatorResponse.class);
@@ -86,7 +80,6 @@ class CoordinatorServiceTest {
 
     @Test
     void testSaveCoordinator_ValidCoordinatorRequest_ReturnsCoordinatorResponse() {
-        // Arrange
         CoordinatorRequest coordinatorRequest = new CoordinatorRequest();
         coordinatorRequest.setFirstName("John");
         coordinatorRequest.setLastName("Dorie");
@@ -102,14 +95,11 @@ class CoordinatorServiceTest {
 
         CoordinatorResponse mockCoordinatorResponse = new CoordinatorResponse();
         mockCoordinatorResponse.setFirstName("John");
-        // Set other properties of mockCoordinatorResponse
 
         when(modelMapper.map(savedCoordinator, CoordinatorResponse.class)).thenReturn(mockCoordinatorResponse);
 
-        // Act
         CoordinatorResponse coordinatorResponse = coordinatorService.saveCoordinator(coordinatorRequest);
 
-        // Assert
         assertEquals("John", coordinatorResponse.getFirstName());
 
         verify(coordinatorRepository, times(1)).save(any(Coordinator.class));
@@ -118,7 +108,6 @@ class CoordinatorServiceTest {
 
     @Test
     void testUpdateCoordinator_ValidCoordinatorRequest_ReturnsUpdatedCoordinatorResponse() {
-        // Arrange
         Integer coordinatorId = 1;
         CoordinatorRequest coordinatorRequest = new CoordinatorRequest();
         coordinatorRequest.setFirstName("June");
@@ -142,14 +131,11 @@ class CoordinatorServiceTest {
 
         CoordinatorResponse mockUpdatedCoordinatorResponse = new CoordinatorResponse();
         mockUpdatedCoordinatorResponse.setFirstName("June");
-        // Set other properties of mockUpdatedCoordinatorResponse
 
         when(modelMapper.map(updatedCoordinator, CoordinatorResponse.class)).thenReturn(mockUpdatedCoordinatorResponse);
 
-        // Act
         CoordinatorResponse updatedCoordinatorResponse = coordinatorService.updateCoordinator(coordinatorId, coordinatorRequest);
 
-        // Assert
         assertEquals("June", updatedCoordinatorResponse.getFirstName());
 
         verify(coordinatorRepository, times(1)).findById(coordinatorId);
@@ -159,7 +145,6 @@ class CoordinatorServiceTest {
 
     @Test
     void testDeleteCoordinator_ValidId_ReturnsSuccessMessage() {
-        // Arrange
         Integer coordinatorId = 1;
 
         Coordinator coordinatorToDelete = new Coordinator();
@@ -170,10 +155,8 @@ class CoordinatorServiceTest {
 
         when(coordinatorRepository.findById(coordinatorId)).thenReturn(Optional.of(coordinatorToDelete));
 
-        // Act
         String resultMessage = coordinatorService.deleteCoordinator(coordinatorId);
 
-        // Assert
         assertEquals("Coordinator with ID 1 was deleted", resultMessage);
 
         verify(coordinatorRepository, times(1)).findById(coordinatorId);

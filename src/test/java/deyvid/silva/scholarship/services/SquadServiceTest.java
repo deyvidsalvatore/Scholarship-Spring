@@ -43,7 +43,6 @@ class SquadServiceTest {
 
     @Test
     void testGetSquadById_ValidId_ReturnsSquadResponse() {
-        // Arrange
         Integer squadId = 1;
         Squad squad = new Squad(squadId, "Squad A", new ArrayList<>(), new ArrayList<>());
         when(squadRepository.findById(squadId)).thenReturn(Optional.of(squad));
@@ -53,10 +52,8 @@ class SquadServiceTest {
 
         when(modelMapper.map(squad, SquadResponse.class)).thenReturn(mockSquadResponse);
 
-        // Act
         SquadResponse squadResponse = squadService.getSquadById(squadId);
 
-        // Assert
         assertEquals("Squad A", squadResponse.getSquadName());
 
         verify(modelMapper, times(1)).map(squad, SquadResponse.class);
@@ -64,11 +61,9 @@ class SquadServiceTest {
 
     @Test
     void testGetSquadById_InvalidId_ThrowsResourceNotFoundException() {
-        // Arrange
         Integer invalidSquadId = 999;
         when(squadRepository.findById(invalidSquadId)).thenReturn(Optional.empty());
 
-        // Act and Assert
         assertThrows(ResourceNotFoundException.class, () -> squadService.getSquadById(invalidSquadId));
     }
 
